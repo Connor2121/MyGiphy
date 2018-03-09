@@ -34,7 +34,7 @@ $(document).ready(function() {
         });
         createButtons();
 
-    
+    // grabs gif from Giphy API
     function retrieveGif () {
         
         var giphyTopic = $(this).attr('data-name');
@@ -49,13 +49,15 @@ $(document).ready(function() {
 
             console.log(response);
             var search = response.data;
-
+            // goes through returned object
+            // creates div to hold rating and image
             for(i = 0; i < search.length; i++) {
             var gifLocation = $('<div>');
             gifLocation.addClass('giph');
             var rating = $('<p>').text('Rating: ' + search[i].rating);
             gifLocation.append(rating);
-
+            // sets src for initial still image
+            // sets data state of image to correct location in the search object
             var image = $('<img>');
             image.addClass('image');
             image.attr('src', search[i].images.fixed_height_still.url);
@@ -65,7 +67,7 @@ $(document).ready(function() {
 
             gifLocation.append(image);
 
-
+            // adds the div to top of page
 
             $('#myGiphy').prepend(gifLocation);
             
@@ -76,8 +78,10 @@ $(document).ready(function() {
     
     } 
 
-
+    // upon clicking specific button, gif is retrieved from Giphy API
     $(document).on('click', '.myInterests', retrieveGif);
+
+    // logic to switch between states
     $(document).on('click', '.image', function() {
         var state = $(this).attr('data-state');
        if(state === 'still') {
