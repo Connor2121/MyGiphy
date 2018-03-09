@@ -1,3 +1,30 @@
 .myInterests {
     color: black;
 }
+
+#giphyButtons {
+    margin: 30px;
+}
+
+.myInterests {
+    border: 5px;
+    margin: 2px;
+}
+
+.jumbotron {
+    background-color: salmon;
+}
+
+body {
+    background-color: ghostwhite;
+}
+
+#newGiphySubmit {
+    color: black;
+}
+
+#labelBox {
+    color: black;
+    background-color: salmon;
+    padding: 5px;
+}
