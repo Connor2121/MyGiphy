@@ -57,6 +57,14 @@ $(document).ready(function() {
             gifLocation.append(rating);
 
             var image = $('<img>');
+            image.addClass('image');
+            image.attr('src', search[i].images.fixed_height_still.url);
+            image.attr('data-still', search[i].images.fixed_height_still.url);
+            image.attr('data-animate', search[i].images.fixed_height.url);
+            image.attr('data-state', 'still');
+
+            gifLocation.append(image);
+
 
 
             $('#myGiphy').prepend(gifLocation);
@@ -68,24 +76,17 @@ $(document).ready(function() {
     
     } 
 
-    $(document).on("click", ".myInterests", retrieveGif);
 
-
-    
-
-
-
-
-
-     
-
-
-
-
-
-
-
-
-
-
-})
+    $(document).on('click', '.myInterests', retrieveGif);
+    $(document).on('click', '.image', function() {
+        var state = $(this).attr('data-state');
+       if(state === 'still') {
+           $(this).attr('src', $(this).data('animate'));
+           $(this).attr('data-state', 'animate');
+       }
+       else {
+           $(this).attr('src', $(this).data('still'));
+           $(this).attr('data-state', 'still');
+       }
+    });
+});
