@@ -7,7 +7,7 @@ $(document).ready(function() {
     // create buttons for all interests in the array
 
     function createButtons() {
-        $('#giphyButtons').empty();
+       // $('#giphyButtons').empty();
 
         for(i = 0; i < interests.length; i++) {
             var giphyButton = $('<button>');
@@ -26,6 +26,7 @@ $(document).ready(function() {
         $('#newGiphySubmit').on('click', function(event) {
             event.preventDefault();
             var newButton = $('#newGiphy').val().trim();
+            // prevents blank buttons
             if(newButton === "") {
                 return false;
             }
@@ -85,11 +86,11 @@ $(document).ready(function() {
     $(document).on('click', '.image', function() {
         var state = $(this).attr('data-state');
        if(state === 'still') {
-           $(this).attr('src', $(this).data('animate'));
+           $(this).attr('src', $(this).attr('animate'));
            $(this).attr('data-state', 'animate');
        }
        else {
-           $(this).attr('src', $(this).data('still'));
+           $(this).attr('src', $(this).attr('still'));
            $(this).attr('data-state', 'still');
        }
     });
