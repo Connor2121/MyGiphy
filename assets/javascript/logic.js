@@ -7,7 +7,7 @@ $(document).ready(function() {
     // create buttons for all interests in the array
 
     function createButtons() {
-       // $('#giphyButtons').empty();
+      
 
         for(i = 0; i < interests.length; i++) {
             var giphyButton = $('<button>');
@@ -27,7 +27,7 @@ $(document).ready(function() {
             event.preventDefault();
             var newButton = $('#newGiphy').val().trim();
             // prevents blank buttons
-            if(newButton === "") {
+            if (newButton === "") {
                 return false;
             }
             interests.push(newButton);
@@ -40,7 +40,7 @@ $(document).ready(function() {
         
         var giphyTopic = $(this).attr('data-name');
         var queryURL = 'https://api.giphy.com/v1/gifs/search?q=' + giphyTopic + '&api_key=egCE8hOkHeNVvBn6y6IB8I7aFuejtR0U&limit=10';
-        console.log(queryURL);
+        
 
         $.ajax({
             url: queryURL,
@@ -48,7 +48,7 @@ $(document).ready(function() {
         })
         .then(function(response) {
 
-            console.log(response);
+            
             var search = response.data;
             // goes through returned object
             // creates div to hold rating and image
@@ -73,7 +73,7 @@ $(document).ready(function() {
             $('#myGiphy').prepend(gifLocation);
             
 
-            //createButtons();
+           
             }
         });
     
@@ -82,10 +82,10 @@ $(document).ready(function() {
     // upon clicking specific button, gif is retrieved from Giphy API
     $(document).on('click', '.myInterests', retrieveGif);
 
-    // logic to switch between states
+    // logic to switch between data states
     $(document).on('click', '.image', function() {
         var state = $(this).attr('data-state');
-       if(state === 'still') {
+       if (state === 'still') {
            $(this).attr('src', $(this).attr('animate'));
            $(this).attr('data-state', 'animate');
        }
