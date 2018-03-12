@@ -86,11 +86,11 @@ $(document).ready(function() {
     $(document).on('click', '.image', function() {
         var state = $(this).attr('data-state');
        if (state === 'still') {
-           $(this).attr('src', $(this).attr('animate'));
+           $(this).attr('src', $(this).data('animate'));
            $(this).attr('data-state', 'animate');
        }
        else {
-           $(this).attr('src', $(this).attr('still'));
+           $(this).attr('src', $(this).data('still'));
            $(this).attr('data-state', 'still');
        }
     });
