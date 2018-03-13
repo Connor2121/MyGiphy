@@ -7,7 +7,7 @@ $(document).ready(function() {
     // create buttons for all interests in the array
 
     function createButtons() {
-      
+        $('#giphyButtons').empty();
 
         for(i = 0; i < interests.length; i++) {
             var giphyButton = $('<button>');
