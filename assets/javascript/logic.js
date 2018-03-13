@@ -18,8 +18,6 @@ $(document).ready(function() {
             $('#giphyButtons').append(giphyButton);
         }
     }       
-
-
         // add new interest to array on click of submit button
         // create new button for that interest and append to page
 
@@ -31,6 +29,7 @@ $(document).ready(function() {
                 return false;
             }
             interests.push(newButton);
+            $('#newGiphy').val('');
             createButtons();
         });
         createButtons();
@@ -71,12 +70,8 @@ $(document).ready(function() {
             // adds the div to top of page
 
             $('#myGiphy').prepend(gifLocation);
-            
-
-           
             }
         });
-    
     } 
 
     // upon clicking specific button, gif is retrieved from Giphy API
